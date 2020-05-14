@@ -56,6 +56,6 @@ public class DeserializationFromUntypedCollectionsTest {
 
         Assertions.assertTrue(deserialized instanceof List);
         Assertions.assertTrue(((List)deserialized).get(0) instanceof UserContainer);
-        Assertions.assertTrue(((List)deserialized).get(1) instanceof User);
+        Assertions.assertTrue(((List)deserialized).get(1) instanceof User); // Boom!
     }
 }
