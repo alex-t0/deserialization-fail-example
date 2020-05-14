@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class DeserializationFromUntypedCollectionsTest {
     @Test
-    public void mapDeserializationTastThatWorks() throws JsonProcessingException {
+    public void mapDeserializationTestThatWorks() throws JsonProcessingException {
         List<Object> list = new ArrayList<>();
 
         User user = new User();
@@ -36,7 +36,7 @@ public class DeserializationFromUntypedCollectionsTest {
     }
 
     @Test
-    public void mapDeserializationTastThatNotWorks() throws JsonProcessingException {
+    public void mapDeserializationTestThatNotWorks() throws JsonProcessingException {
         List<Object> list = new ArrayList<>();
 
         User user = new User();
