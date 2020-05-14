@@ -1,5 +1,6 @@
 package deserialization.fail.example;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,7 +27,7 @@ public class MapperUtil {
 
         PolymorphicTypeValidator ptv = builder.allowIfSubType(matcher).allowIfBaseType(matcher).build();
 
-        mapper.activateDefaultTyping(ptv, ObjectMapper.DefaultTyping.EVERYTHING);
+        mapper.activateDefaultTyping(ptv, ObjectMapper.DefaultTyping.NON_FINAL);
 
         Hibernate5Module hibernateModule = new Hibernate5Module();
         hibernateModule.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
