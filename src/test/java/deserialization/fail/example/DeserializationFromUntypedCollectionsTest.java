@@ -46,8 +46,8 @@ public class DeserializationFromUntypedCollectionsTest {
         UserContainer container = new UserContainer();
         container.setUser(user);
 
-        list.add(container);
-        list.add(user);
+        list.add(container);    // <---|
+        list.add(user);         // <---|
 
         ObjectMapper mapper = MapperUtil.getMapper();
         String serialized = mapper.writeValueAsString(list);
