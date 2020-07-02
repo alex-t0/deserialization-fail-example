@@ -24,10 +24,10 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("com.google.guava:guava:28.2-jre")
 
-    implementation("org.hibernate:hibernate-core:5.4.14.Final")
+    // implementation("org.hibernate:hibernate-core:5.4.14.Final")
 
     implementation("com.fasterxml.jackson.core:jackson-databind:2.11.0")
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.11.0")
+    // implementation("com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.11.0")
 
     // Use JUnit Jupiter API for testing.
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")

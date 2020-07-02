@@ -7,14 +7,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.cfg.MapperConfig;
 import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
 import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
-import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
 
 public class MapperUtil {
     public static ObjectMapper getMapper() {
         ObjectMapper mapper = new ObjectMapper();
 
         mapper.configure(MapperFeature.USE_GETTERS_AS_SETTERS, false);
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
         BasicPolymorphicTypeValidator.Builder builder = BasicPolymorphicTypeValidator.builder();
 
@@ -28,12 +27,6 @@ public class MapperUtil {
         PolymorphicTypeValidator ptv = builder.allowIfSubType(matcher).allowIfBaseType(matcher).build();
 
         mapper.activateDefaultTyping(ptv, ObjectMapper.DefaultTyping.NON_FINAL);
-
-        Hibernate5Module hibernateModule = new Hibernate5Module();
-        hibernateModule.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
-        hibernateModule.configure(Hibernate5Module.Feature.REPLACE_PERSISTENT_COLLECTIONS, true);
-        // hibernateModule.configure(Hibernate5Module.Feature.SERIALIZE_IDENTIFIER_FOR_LAZY_NOT_LOADED_OBJECTS, true);
-        mapper.registerModule(hibernateModule);
 
         return mapper;
     }

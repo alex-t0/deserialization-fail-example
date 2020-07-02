@@ -4,13 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(
-        name = "erm_user"
-)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
@@ -18,15 +13,8 @@ import java.io.Serializable;
         scope = User.class
 )
 public class User implements Serializable {
-    @Id
-    @GeneratedValue(
-            strategy = GenerationType.AUTO
-    )
     private Long id;
 
-    @Column(
-            name = "login"
-    )
     private String login;
 
     public Long getId() {
